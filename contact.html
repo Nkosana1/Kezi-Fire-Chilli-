@@ -89,6 +89,7 @@
     </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <div class="header-container">
             <div class="logo">
@@ -111,8 +112,8 @@
         </div>
     </header>
 
-    <main>
-        <section class="page-header">
+    <main id="main-content" role="main">
+        <section class="page-header" aria-label="Page header">
             <h2>Contact Us</h2>
         </section>
 
@@ -138,7 +139,7 @@
 
             <div class="contact-form-container">
                 <h3>Send Us a Message</h3>
-                <form id="contactForm" class="contact-form" novalidate>
+                <form id="contactForm" class="contact-form" novalidate aria-label="Contact form">
                     <div class="form-group">
                         <label for="name">Name <span class="required">*</span></label>
                         <input type="text" id="name" name="name" required>
@@ -165,10 +166,10 @@
 
                     <button type="submit" class="btn-primary btn-submit">
                         <span class="btn-text">Send Message</span>
-                        <span class="btn-loading" style="display: none;">Sending...</span>
+                        <span class="btn-loading btn-loading--hidden">Sending...</span>
                     </button>
 
-                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                    <div id="formMessage" class="form-message form-message--hidden"></div>
                 </form>
             </div>
         </section>

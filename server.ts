@@ -3,7 +3,6 @@ import axios from 'axios';
 import { body, validationResult } from 'express-validator';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import path from 'path';
 
 // Load environment variables
 dotenv.config();
@@ -188,12 +187,12 @@ ${data.message}
 }
 
 // Health check endpoint
-app.get('/api/health', (req: Request, res: Response) => {
+app.get('/api/health', (_req: Request, res: Response) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 // Error handling middleware
-app.use((err: Error, req: Request, res: Response, next: Function) => {
+app.use((err: Error, _req: Request, res: Response, _next: Function) => {
     console.error('Unhandled Error:', err);
     res.status(500).json({
         success: false,

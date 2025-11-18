@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnText = submitButton.querySelector('.btn-text');
     const btnLoading = submitButton.querySelector('.btn-loading');
     const formMessage = document.getElementById('formMessage');
+    
+    if (!form || !submitButton || !formMessage) {
+        console.error('Contact form elements not found');
+        return;
+    }
 
     // Form validation
     function validateField(field) {
@@ -101,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         // Hide previous messages
-        formMessage.style.display = 'none';
-        formMessage.className = 'form-message';
+        formMessage.classList.add('form-message--hidden');
+        formMessage.classList.remove('form-message--success', 'form-message--error');
 
         // Validate form
         if (!validateForm()) {
@@ -112,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Disable submit button
         submitButton.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline-block';
+        btnText.classList.add('btn-loading--hidden');
+        btnLoading.classList.remove('btn-loading--hidden');
 
         // Collect form data
         const formData = {
@@ -153,15 +158,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } finally {
             // Re-enable submit button
             submitButton.disabled = false;
-            btnText.style.display = 'inline-block';
-            btnLoading.style.display = 'none';
+            btnText.classList.remove('btn-loading--hidden');
+            btnLoading.classList.add('btn-loading--hidden');
         }
     });
 
     function showMessage(message, type) {
         formMessage.textContent = message;
-        formMessage.className = `form-message ${type}`;
-        formMessage.style.display = 'block';
+        formMessage.classList.remove('form-message--hidden', 'form-message--success', 'form-message--error');
+        formMessage.classList.add(`form-message--${type}`);
 
         // Scroll to message
         formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
