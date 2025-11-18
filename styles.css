@@ -1,5 +1,6 @@
 /* ============================================
    Kezi Fire Chilli - Visual Design System
+   Mobile-First Responsive Layout
    ============================================ */
 
 /* ============================================
@@ -16,7 +17,7 @@
 }
 
 /* ============================================
-   Reset & Base Styles
+   Reset & Base Styles (Mobile First)
    ============================================ */
 * {
     margin: 0;
@@ -35,7 +36,7 @@ body {
 }
 
 /* ============================================
-   Typography
+   Typography (Mobile First)
    ============================================ */
 h1, h2 {
     font-family: 'Montserrat', 'Poppins', 'Arial Black', sans-serif;
@@ -45,14 +46,14 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     color: var(--primary-red);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--text-dark);
     margin-bottom: 1rem;
 }
@@ -60,7 +61,7 @@ h2 {
 h3 {
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--text-dark);
     margin-bottom: 0.75rem;
 }
@@ -73,21 +74,55 @@ p, li {
 }
 
 /* ============================================
-   Header Styles
+   Responsive Images
+   ============================================ */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-image-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    border: 2px solid var(--primary-red);
+}
+
+.product-image-placeholder.large {
+    aspect-ratio: 4 / 3;
+    font-size: 4rem;
+}
+
+/* ============================================
+   Header Styles (Mobile First)
    ============================================ */
 header {
     background-color: var(--neutral-white);
     border-bottom: 4px solid var(--primary-red);
-    padding: 1.5rem 2rem;
+    padding: 1rem;
     box-shadow: 0 2px 8px rgba(197, 48, 48, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 header .logo h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: inline-block;
     text-shadow: 2px 2px 4px rgba(197, 48, 48, 0.2);
     transition: transform 0.3s ease, text-shadow 0.3s ease;
@@ -99,17 +134,63 @@ header .logo h1:hover {
 }
 
 /* ============================================
-   Navigation Styles
+   Hamburger Menu (Mobile)
    ============================================ */
-nav {
-    margin-top: 1rem;
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger span {
+    width: 2rem;
+    height: 3px;
+    background-color: var(--primary-red);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ============================================
+   Navigation Styles (Mobile First)
+   ============================================ */
+.nav-menu {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.nav-menu.active {
+    max-height: 500px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
 }
 
 nav li {
@@ -123,61 +204,44 @@ nav a {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
+    display: block;
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-red), var(--secondary-orange));
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-}
-
-nav a:hover {
+nav a:hover,
+nav a:focus {
     color: var(--primary-red);
-    transform: translateY(-2px);
-}
-
-nav a:hover::after {
-    width: 80%;
+    background-color: var(--bg-light);
 }
 
 nav a.active {
     color: var(--primary-red);
     font-weight: 700;
-}
-
-nav a.active::after {
-    width: 80%;
-    background: linear-gradient(90deg, var(--primary-red), var(--secondary-orange));
+    background-color: var(--bg-light);
 }
 
 /* ============================================
-   Main Content Styles
+   Main Content Styles (Mobile First)
    ============================================ */
 main {
     flex: 1;
-    padding: 3rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 2rem 1rem;
     width: 100%;
 }
 
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
     text-align: center;
     border-radius: 12px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
 }
@@ -187,8 +251,8 @@ main {
     position: absolute;
     top: -50%;
     right: -10%;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: radial-gradient(circle, rgba(197, 48, 48, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: pulse 3s ease-in-out infinite;
@@ -206,7 +270,7 @@ main {
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 1.75rem;
     color: var(--primary-red);
     margin-bottom: 1rem;
     position: relative;
@@ -214,9 +278,9 @@ main {
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--text-dark);
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -225,13 +289,13 @@ main {
 /* Page Header */
 .page-header {
     text-align: center;
-    padding: 2rem 0;
-    margin-bottom: 3rem;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
     position: relative;
 }
 
 .page-header h2 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     color: var(--primary-red);
     position: relative;
     display: inline-block;
@@ -240,10 +304,10 @@ main {
 .page-header h2::after {
     content: '🔥';
     position: absolute;
-    right: -40px;
+    right: -35px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     animation: flicker 2s ease-in-out infinite;
 }
 
@@ -258,16 +322,17 @@ main {
     }
 }
 
-/* Content Sections */
+/* Content Sections - Single Column (Mobile) */
 .content {
     display: grid;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 article {
     background-color: var(--bg-light);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid var(--primary-red);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -287,10 +352,10 @@ article h3 {
 /* Featured Section */
 .featured {
     background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
-    padding: 3rem 2rem;
+    padding: 2rem 1rem;
     border-radius: 12px;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .featured article {
@@ -303,13 +368,69 @@ article h3 {
     transform: none;
 }
 
+/* Product Grid - Single Column (Mobile) */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-card {
+    background-color: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-red);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(197, 48, 48, 0.1);
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(197, 48, 48, 0.2);
+}
+
+.product-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 0.75rem;
+}
+
+/* Product Showcase - Stacked (Mobile) */
+.product-showcase {
+    margin-bottom: 2rem;
+}
+
+.product-showcase-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Products Preview Section */
+.products-preview {
+    margin-bottom: 2rem;
+}
+
+.products-preview h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-red);
+}
+
 /* ============================================
-   Button Styles
+   Button Styles (Touch-Friendly Mobile)
    ============================================ */
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-orange) 100%);
     color: #ffffff;
-    padding: 1rem 2.5rem;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 6px;
     font-weight: 700;
@@ -321,6 +442,16 @@ article h3 {
     box-shadow: 0 4px 6px rgba(197, 48, 48, 0.3);
     position: relative;
     overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .btn-primary::before {
@@ -334,7 +465,8 @@ article h3 {
     transition: left 0.5s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(197, 48, 48, 0.4);
 }
@@ -349,22 +481,21 @@ article h3 {
 }
 
 /* ============================================
-   Footer Styles
+   Footer Styles (Mobile First)
    ============================================ */
 footer {
     background-color: var(--footer-dark);
     color: var(--neutral-white);
-    padding: 3rem 2rem 1.5rem;
+    padding: 2rem 1rem 1.5rem;
     margin-top: auto;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .footer-address p,
@@ -375,7 +506,7 @@ footer {
 
 .footer-address strong {
     color: var(--secondary-orange);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     display: block;
     margin-bottom: 0.75rem;
 }
@@ -389,6 +520,7 @@ footer {
 .social-icons {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 .social-icons a {
@@ -397,9 +529,15 @@ footer {
     text-decoration: none;
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: brightness(0.9);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.social-icons a:focus {
     transform: scale(1.2) rotate(5deg);
     filter: brightness(1.2);
 }
@@ -415,6 +553,242 @@ footer {
 .footer-copyright p {
     margin: 0;
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   Tablet Breakpoint (768px)
+   ============================================ */
+@media (min-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Header */
+    header {
+        padding: 1.5rem 2rem;
+    }
+
+    header .logo h1 {
+        font-size: 2rem;
+    }
+
+    /* Hide Hamburger, Show Horizontal Nav */
+    .hamburger {
+        display: none;
+    }
+
+    .nav-menu {
+        width: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 1rem;
+        padding-top: 0;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        min-height: auto;
+        display: inline-block;
+    }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-red), var(--secondary-orange));
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+        width: 80%;
+    }
+
+    /* Main Content */
+    main {
+        padding: 2.5rem 2rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 3rem 2rem;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.125rem;
+    }
+
+    .hero::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Page Header */
+    .page-header {
+        padding: 2rem 0;
+        margin-bottom: 3rem;
+    }
+
+    .page-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .page-header h2::after {
+        right: -40px;
+        font-size: 1.5rem;
+    }
+
+    /* Content - 2 Column Grid */
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    /* Product Grid - 2 Columns */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    /* Product Showcase - Side by Side */
+    .product-showcase-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .product-image-placeholder {
+        flex: 1;
+    }
+
+    .product-details {
+        flex: 1;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        width: auto;
+        max-width: none;
+        padding: 1rem 2.5rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 3rem 2rem 1.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+        gap: 2rem;
+    }
+
+    .footer-social {
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+/* ============================================
+   Desktop Breakpoint (1024px)
+   ============================================ */
+@media (min-width: 1024px) {
+    /* Typography */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    /* Header */
+    header {
+        padding: 1.5rem 2rem;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        gap: 2rem;
+    }
+
+    /* Main Content - Centered with Max Width */
+    main {
+        padding: 3rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 4rem 2rem;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+        max-width: 600px;
+    }
+
+    /* Content - 3 Column Grid */
+    .content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    /* Product Grid - 3 Columns */
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    /* Product Showcase - Split Layout */
+    .product-showcase-content {
+        gap: 3rem;
+    }
+
+    .product-image-placeholder.large {
+        max-width: 500px;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* ============================================
@@ -442,80 +816,6 @@ footer {
 .flame-accent::after {
     right: -30px;
     animation-delay: 1s;
-}
-
-/* ============================================
-   Responsive Design
-   ============================================ */
-@media (max-width: 768px) {
-    header {
-        padding: 1rem;
-    }
-
-    header .logo h1 {
-        font-size: 1.5rem;
-    }
-
-    nav ul {
-        gap: 1rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    main {
-        padding: 2rem 1rem;
-    }
-
-    .hero {
-        padding: 2rem 1rem;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .page-header h2 {
-        font-size: 2rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .hero h2 {
-        font-size: 1.75rem;
-    }
-
-    .page-header h2::after {
-        display: none;
-    }
 }
 
 /* ============================================
@@ -548,8 +848,15 @@ nav a {
 /* Focus states for keyboard navigation */
 nav a:focus,
 .btn-primary:focus,
-.social-icons a:focus {
+.social-icons a:focus,
+.hamburger:focus {
     outline: 3px solid var(--secondary-orange);
     outline-offset: 2px;
 }
 
+/* Hide decorative elements on very small screens */
+@media (max-width: 480px) {
+    .page-header h2::after {
+        display: none;
+    }
+}

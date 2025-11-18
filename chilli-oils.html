@@ -11,18 +11,25 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h1>Kezi Fire</h1>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Kezi Fire</h1>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="chilli-powder.html">Chilli Powder</a></li>
+                    <li><a href="chilli-oils.html" class="active">Chilli Oils</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Our Story</a></li>
-                <li><a href="chilli-powder.html">Chilli Powder</a></li>
-                <li><a href="chilli-oils.html" class="active">Chilli Oils</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
@@ -30,16 +37,36 @@
             <h2>Chilli Oils</h2>
         </section>
 
-        <section class="content">
-            <article>
-                <h3>Infused with Fire</h3>
-                <p>Our premium chilli oils are carefully crafted, infusing the bold heat of African chillies into high-quality oils.</p>
-            </article>
+        <section class="product-showcase">
+            <div class="product-showcase-content">
+                <div class="product-image-placeholder large">
+                    <span>🌶️</span>
+                </div>
+                <div class="product-details">
+                    <h3>Infused with Fire</h3>
+                    <p>Our premium chilli oils are carefully crafted, infusing the bold heat of African chillies into high-quality oils.</p>
+                    <h3>Versatile Heat</h3>
+                    <p>Perfect for drizzling over dishes, marinating, or adding that authentic fiery kick to any meal.</p>
+                    <a href="contact.html" class="btn-primary">Order Now</a>
+                </div>
+            </div>
+        </section>
 
-            <article>
-                <h3>Versatile Heat</h3>
-                <p>Perfect for drizzling over dishes, marinating, or adding that authentic fiery kick to any meal.</p>
-            </article>
+        <section class="content">
+            <div class="product-grid">
+                <article>
+                    <h3>Cold-Pressed Base</h3>
+                    <p>Made with premium cold-pressed oils that enhance the natural flavors of our chillies.</p>
+                </article>
+                <article>
+                    <h3>Slow Infusion</h3>
+                    <p>Our chillies are slowly infused to extract maximum flavor and heat intensity.</p>
+                </article>
+                <article>
+                    <h3>Gourmet Quality</h3>
+                    <p>Elevate any dish with our artisanal chilli oils, perfect for the discerning palate.</p>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -67,6 +94,7 @@
             <p>&copy; 2024 Kezi Fire Chilli. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
 

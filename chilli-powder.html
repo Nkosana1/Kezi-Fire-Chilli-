@@ -11,18 +11,25 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h1>Kezi Fire</h1>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Kezi Fire</h1>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="chilli-powder.html" class="active">Chilli Powder</a></li>
+                    <li><a href="chilli-oils.html">Chilli Oils</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Our Story</a></li>
-                <li><a href="chilli-powder.html" class="active">Chilli Powder</a></li>
-                <li><a href="chilli-oils.html">Chilli Oils</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
@@ -30,16 +37,36 @@
             <h2>Chilli Powder</h2>
         </section>
 
-        <section class="content">
-            <article>
-                <h3>Premium Ground Chillies</h3>
-                <p>Our chilli powder is made from the finest African chillies, carefully dried and ground to perfection.</p>
-            </article>
+        <section class="product-showcase">
+            <div class="product-showcase-content">
+                <div class="product-image-placeholder large">
+                    <span>🔥</span>
+                </div>
+                <div class="product-details">
+                    <h3>Premium Ground Chillies</h3>
+                    <p>Our chilli powder is made from the finest African chillies, carefully dried and ground to perfection.</p>
+                    <h3>Authentic Flavor</h3>
+                    <p>Experience the true heat and flavor of Zimbabwe's premium chillies in every sprinkle.</p>
+                    <a href="contact.html" class="btn-primary">Order Now</a>
+                </div>
+            </div>
+        </section>
 
-            <article>
-                <h3>Authentic Flavor</h3>
-                <p>Experience the true heat and flavor of Zimbabwe's premium chillies in every sprinkle.</p>
-            </article>
+        <section class="content">
+            <div class="product-grid">
+                <article>
+                    <h3>Premium Quality</h3>
+                    <p>Hand-selected chillies from local Kezi farms, ensuring the highest quality in every batch.</p>
+                </article>
+                <article>
+                    <h3>Traditional Process</h3>
+                    <p>Dried and ground using time-honored methods that preserve the authentic flavor and heat.</p>
+                </article>
+                <article>
+                    <h3>Versatile Use</h3>
+                    <p>Perfect for seasoning, marinades, and adding that signature Zimbabwean heat to any dish.</p>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -67,6 +94,7 @@
             <p>&copy; 2024 Kezi Fire Chilli. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
 

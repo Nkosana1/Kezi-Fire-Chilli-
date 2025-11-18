@@ -11,18 +11,25 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h1>Kezi Fire</h1>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Kezi Fire</h1>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="chilli-powder.html">Chilli Powder</a></li>
+                    <li><a href="chilli-oils.html">Chilli Oils</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">Our Story</a></li>
-                <li><a href="chilli-powder.html">Chilli Powder</a></li>
-                <li><a href="chilli-oils.html">Chilli Oils</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
@@ -36,6 +43,28 @@
                 <h3>Welcome to Kezi Fire Chilli</h3>
                 <p>Discover the bold, vibrant flavors of Zimbabwe's premium chilli products.</p>
             </article>
+        </section>
+
+        <section class="products-preview">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image-placeholder">
+                        <span>🔥</span>
+                    </div>
+                    <h3>Chilli Powder</h3>
+                    <p>Premium ground chillies from Zimbabwe's finest farms.</p>
+                    <a href="chilli-powder.html" class="btn-primary">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <div class="product-image-placeholder">
+                        <span>🌶️</span>
+                    </div>
+                    <h3>Chilli Oils</h3>
+                    <p>Infused oils with authentic African heat.</p>
+                    <a href="chilli-oils.html" class="btn-primary">Learn More</a>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -63,6 +92,7 @@
             <p>&copy; 2024 Kezi Fire Chilli. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
 
