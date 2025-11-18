@@ -952,6 +952,16 @@ footer {
         padding: 0 2rem;
     }
 
+    /* Contact Form */
+    .contact-section {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .contact-form-container {
+        padding: 2.5rem;
+    }
+
     /* Footer */
     footer {
         padding: 3rem 2rem 1.5rem;
@@ -1066,6 +1076,17 @@ footer {
     .story-content {
         padding: 0 3rem;
     }
+
+    /* Contact Form - Desktop */
+    .contact-form-container {
+        padding: 3rem;
+    }
+
+    .btn-submit {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* ============================================
@@ -1107,6 +1128,136 @@ article,
 .btn-primary,
 nav a {
     will-change: transform;
+}
+
+/* ============================================
+   Contact Form Styles
+   ============================================ */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.contact-form-container {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-red);
+    box-shadow: 0 4px 12px rgba(197, 48, 48, 0.1);
+}
+
+.contact-form-container h3 {
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.required {
+    color: var(--primary-red);
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 3px rgba(197, 48, 48, 0.1);
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--primary-red);
+}
+
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
+    border-color: var(--tertiary-green);
+}
+
+.error-message {
+    color: var(--primary-red);
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-height: 1.25rem;
+    display: block;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    margin-top: 0.5rem;
+    width: 100%;
+    position: relative;
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-loading {
+    display: inline-block;
+}
+
+.form-message {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-message.success {
+    background-color: rgba(104, 211, 145, 0.1);
+    color: #22543d;
+    border: 2px solid var(--tertiary-green);
+}
+
+.form-message.error {
+    background-color: rgba(197, 48, 48, 0.1);
+    color: #742a2a;
+    border: 2px solid var(--primary-red);
 }
 
 /* ============================================

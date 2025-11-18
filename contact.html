@@ -37,23 +37,61 @@
             <h2>Contact Us</h2>
         </section>
 
-        <section class="content">
-            <article>
-                <h3>Get in Touch</h3>
-                <p>We'd love to hear from you! Reach out to us for inquiries, orders, or just to say hello.</p>
-            </article>
+        <section class="contact-section">
+            <div class="contact-info">
+                <article>
+                    <h3>Get in Touch</h3>
+                    <p>We'd love to hear from you! Reach out to us for inquiries, orders, or just to say hello.</p>
+                </article>
 
-            <article>
-                <h3>Visit Us</h3>
-                <p>123 Farm Road, Kezi City<br>
-                Matabeleland South, Zimbabwe</p>
-            </article>
+                <article>
+                    <h3>Visit Us</h3>
+                    <p>123 Farm Road, Kezi City<br>
+                    Matabeleland South, Zimbabwe</p>
+                </article>
 
-            <article>
-                <h3>Contact Information</h3>
-                <p>Phone: +263 77 123 4567<br>
-                Email: info@kezifirechilli.co.zw</p>
-            </article>
+                <article>
+                    <h3>Contact Information</h3>
+                    <p>Phone: +263 77 123 4567<br>
+                    Email: info@kezifirechilli.co.zw</p>
+                </article>
+            </div>
+
+            <div class="contact-form-container">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">Sending...</span>
+                    </button>
+
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                </form>
+            </div>
         </section>
     </main>
 
@@ -82,6 +120,7 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="contact-form.js"></script>
 </body>
 </html>
 
